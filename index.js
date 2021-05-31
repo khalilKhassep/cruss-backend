@@ -24,9 +24,7 @@ app.listen(port, () => {
     console.log("App start")
 });
 
-//Read documentation of moduling in nodejs 
-// Get to know to use imports and exports in nodejs 
-// Using type module remove the default usage of require funciton that responsiable for requiring packges
+
 //@todo 
 /**
  * Rest API for admin
