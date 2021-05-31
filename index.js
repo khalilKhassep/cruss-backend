@@ -9,21 +9,20 @@ const adminRoutes = require('./app/admin/routes');
 app.use(express.json());
 // db.init(); 
 //db.statment();
-db.insert()
 app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'keyboard cat'
-}))
+}));
 app.get('/', (req, res) => {
     res.send('hello first responns')
     console.log(req);
 });
 
-app.use('/admin' , adminRoutes);
+app.use('/admin', adminRoutes);
 app.listen(port, () => {
     console.log("App start")
-})
+});
 
 //Read documentation of moduling in nodejs 
 // Get to know to use imports and exports in nodejs 

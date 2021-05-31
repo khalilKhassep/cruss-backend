@@ -18,27 +18,31 @@ const database = {
       database.run(query.createRullesTable);
       database.run(query.creaetAdminTable);
       database.run(query.addPasswordCol);
+      database.close();
     });
-    database.close();
+
   },
 
-  statment:  async function (query, values) {
-    const database = this.connect;
-    return new Promise((resolve,reject) => {
+  statment: async function (query, values) {
+
+    return new Promise((resolve, reject) => {
+      const database = this.connect;
       database.serialize((function () {
         database.run(query, values, function (err) {
           if (err === null) {
             //console.log(this)
             const response = this;
-           resolve(response)
+
+            database.close();
+            resolve(response);
           } else {
-            console.log(err);
+            database.close();
             return reject(err)
           }
         });
       }))
     })
-  
+
   },
   makeValues: async (values) => {
     if (!Object.entries(values).length) throw new Error('Argnent is not an object' + values)
@@ -59,7 +63,7 @@ const database = {
     // remove $ sign from keys by cloning keys array to a new array holding keys
     const formatedValuesArr = keys.map(key => {
       return key.toString().replace("$", '')
-    })
+    });
     // generate query string from formatedValues
     const columns = `(${formatedValuesArr.join(',')})`;
     const colValues = `(${keys.join(',')})`;

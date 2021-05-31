@@ -20,8 +20,6 @@ class AdminController {
               resolve(resolved);
             });
 
-
-
     }
 }
 
