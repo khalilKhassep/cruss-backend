@@ -1,25 +1,31 @@
 const express = require('express');
 const session = require('express-session');
+const path = require('path');
+require('dotenv').config()
+
 const app = express();
 const port = 3333;
 
-const db = require('./app/database/db');
-const adminRoutes = require('./app/admin/routes');
+const db = require('./app/modules/database/db');
+const adminRoutes = require('./app/routes/AdminRoutes');
+app.use(express.urlencoded({ extended: true }))
 
 app.use(express.json());
-// db.init(); 
-//db.statment();
+
 app.use(session({
     resave: false,
-    saveUninitialized: true,
-    secret: 'keyboard cat'
+    saveUninitialized: true, 
+    secret: 'hellome'
 }));
-app.get('/', (req, res) => {
-    res.send('hello first responns')
-    console.log(req);
-});
+ 
+app.set('views' ,path.resolve(process.env.VIEWS_PATH));
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+ 
+ 
+app.use('/admin', adminRoutes); 
 
-app.use('/admin', adminRoutes);
+
 app.listen(port, () => {
     console.log("App start")
 });
