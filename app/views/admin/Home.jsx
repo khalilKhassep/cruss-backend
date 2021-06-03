@@ -1,10 +1,12 @@
 const React = require('react');
-function Home(props){
-    return(
-        <div className="container">
-            <h1>Home</h1>
-            <h3>Admin : {props.user.admin.email}</h3>
-        </div>
-    )
+const Layout = require('./Layout')
+function Home(props) {
+  return (
+    <Layout>
+         <div className="content-area-home">
+            <h1>Content area home</h1>
+         </div>
+    </Layout>
+  )
 }
 module.exports = Home;

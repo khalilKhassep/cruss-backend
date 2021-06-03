@@ -9,11 +9,14 @@ const port = 3333;
 const db = require('./app/modules/database/db');
 const adminRoutes = require('./app/routes/AdminRoutes');
 app.use(express.urlencoded({ extended: true }))
-
+app.use('/js', express.static(path.join(__dirname, 'public/js')));
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
+app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
+ 
 app.use(express.json());
 
 app.use(session({
-    resave: false,
+    resave: false, 
     saveUninitialized: true, 
     secret: 'hellome'
 }));

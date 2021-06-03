@@ -11,7 +11,7 @@ class AdminLoginController {
    }
 
    static showLoginForm() {
-
+           
    }
    async login() {
 
@@ -28,7 +28,7 @@ class AdminLoginController {
          const loging = await bcrypt.compare(this.password, credeintial.admin.password);
           
          if (loging && this.email === credeintial.admin.email) {
-             return reslove({
+             return reslove({ 
                 admin:credeintial.admin,
                 authenticated:credeintial.isFound && loging,
                 isFound:credeintial.isFound,

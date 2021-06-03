@@ -1,0 +1,21 @@
+.sidebar{
+    box-shadow: 0 0 4px 0 #cccbcb;
+    padding: 20px;
+}
+.sidebar-header{
+    border-bottom: 1px solid #eee;
+    padding: 14px;
+    margin-bottom: 15px;
+}
+.sidebar-header .brand{
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.sidebar .sidebar-body .sidebar-item{
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    margin-bottom: 8px;
+    font-size: 18px;
+}

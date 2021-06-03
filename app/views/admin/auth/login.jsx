@@ -1,25 +1,48 @@
 const React = require('react');
-const Layout = require('../Layout');
+const Layout = require('./AuthLayout');
 function Login(props) {
     return (
         <>
             <Layout>
-                <div className="login-form">
-                    <div className="alert">
-                        {props.message && props.message}
-                    </div>
-                    <form action="/admin/login" method="POST" className="form" enctype="application/json">
+                <div className="login-container">
+                    <div className="row">
+                        <div className="col-xs-12 col-md-4 col-lg-4 m-auto">
+                            <div className="panel panel-default">
+                                <div className="panel-heading">Login to Admin dashboard</div>
+                                <div className="panel-body">
+                                    <form encType='urlecoded' action="/admin/login" method='POST' className="form">
+                                        <div className="form-group">
+                                            <label htmlFor="email" className='label'>
+                                                Email Address
+                                              </label>
+                                            <input type="email" className="form-control" name="email" id='email' />
 
-                        <div className="form-group">
-                            <label htmlFor="email" className="label">Email</label>
-                            <input id={"email"} type="email" name="email" className="form-control" />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="password" className='label'>
+                                                Email Address
+                                              </label>
+                                            <input type="password" className="form-control" name="password" id='password' />
+
+                                        </div>
+
+                                        <div className="form-group text-center">
+                                            <button className='btn btn-primary' type='submit'>Login</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div className="panel-footer">
+                                    {props.message 
+                                     ? <div className="alert alert-danger"> {props.message} </div>
+                                     : ""
+                                     }
+                                   
+                                </div>
+                            </div>
+
+
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="password" className="label">Passowrd</label>
-                            <input id="password" type="password" name={'password'} className="form-control" />  
-                        </div>
-                        <button type="submit" className={'btn btn-primary'}>Login</button>
-                    </form>
+                    </div>
                 </div>
             </Layout>
 

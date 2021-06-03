@@ -1,0 +1,23 @@
+.container{
+  
+}
+
+.login-container{
+    margin-top: 20%;
+}
+.login-container .panel .label{
+   
+    font-size: 14px;
+    color: #8a8a8a;
+}
+
+.login-container .panel{
+    padding: 15px;
+    box-shadow: 0 0 6px 0px #bfbebe;
+}
+.login-container .panel .panel-heading{
+    border-bottom: 1px solid #0062cc;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+}
