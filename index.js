@@ -15,7 +15,7 @@ app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
  
 app.use(express.json());
 
-app.use(session({
+app.use(session({ 
     resave: false, 
     saveUninitialized: true, 
     secret: 'hellome'
@@ -25,7 +25,9 @@ app.set('views' ,path.resolve(process.env.VIEWS_PATH));
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
  
- 
+ app.get('/' , (req,res)=>{
+     res.render('index')
+ })
 app.use('/admin', adminRoutes); 
 
 
