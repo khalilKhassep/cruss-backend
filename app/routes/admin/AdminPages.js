@@ -15,7 +15,7 @@ router.get('/', AdminAuthMiddelware, async (req, res) => {
 router.get('/home', AdminAuthMiddelware, async (req, res) => {
     const user = await Admin.getAdminByEmail(req.session.admin.email).then(resolved => resolved);
     console.log("ADmin", user);
-    res.render('admin/home')
+    res.render('admin/Home')
 });
 router.post('/create', AdminAuthMiddelware, (req, res) => {
     AdminContoller.create(req.body)
